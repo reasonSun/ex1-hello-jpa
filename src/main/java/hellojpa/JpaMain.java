@@ -14,11 +14,13 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
-//            Member member = new Member();
-//            member.setId(2L);
-//            member.setName("HelloB");
-//
-//            em.persist(member);
+            //비영속
+            Member member = new Member();
+            member.setId(100L);
+            member.setName("HelloJPA");
+
+            //영속 (entityManger 안에있는 영속성 컨텍스트 안에서 관리 된다는 뜻)
+            em.persist(member);
 
             Member findMember = em.find(Member.class, 1L);
             findMember.setName("HelloJPA");
